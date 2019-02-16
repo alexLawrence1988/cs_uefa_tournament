@@ -1,0 +1,11 @@
+{
+  "name": "cs_uefa_tournament",
+  "version": "1.0.0",
+  "description": "clubSpark Tournament backend",
+  "main": "tournament.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex Lawrence",
+  "license": "ISC"
+}
