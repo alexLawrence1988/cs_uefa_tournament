@@ -170,7 +170,7 @@ module.exports = function (config) {
     }
 
     this.connectToDB().then((d) => {
-        console.trace("Connected to database");
+        console.log("Connected to database");
         self.connected = true;
     });
 

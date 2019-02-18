@@ -6,14 +6,23 @@ const express = require('express');
 const app = express();
 const teams = require('./routes/teams.js');
 const env = process.env.NODE_ENV || 'local';
-const config = require('./config/config.' + env + '.js');
+const config = require(`./config/config.${env}.js`);
+const cors = require('cors');
 
 ////////////////////////////////////////////////////////////////////////////
 ///// App setup ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-app.use('/tournaments/uefa', teams);
+app.use(cors());
+app.use('/tournaments', teams);
+
+// error handling
+app.use(function (err, req, res, next){
+  console.log('Hey you guysssss');
+  //TODO: Implement logging
+  next(err);
+});
 
 ////////////////////////////////////////////////////////////////////////////
 ///// Start express server on port /////////////////////////////////////////
